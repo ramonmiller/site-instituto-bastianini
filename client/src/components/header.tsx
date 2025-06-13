@@ -36,8 +36,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <h3 className="font-montserrat font-bold text-xl flex items-center" style={{ color: '#0B336F' }}>
-                <GraduationCap className="mr-2 h-6 w-6" />
+              <h3 className="font-montserrat font-bold text-xl" style={{ color: '#0B336F' }}>
                 Instituto Bastianini
               </h3>
             </div>
