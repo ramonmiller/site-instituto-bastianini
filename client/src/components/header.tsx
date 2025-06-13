@@ -43,8 +43,8 @@ export default function Header() {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+            <div className="hidden md:flex flex-1 justify-center">
+              <div className="flex items-baseline space-x-8">
                 <a 
                   href="#inicio" 
                   onClick={(e) => handleLinkClick(e, '#inicio')}
@@ -89,6 +89,9 @@ export default function Header() {
                 </a>
               </div>
             </div>
+            
+            {/* Empty space for balance */}
+            <div className="hidden md:block flex-shrink-0 w-48"></div>
             
             {/* Mobile menu button */}
             <div className="md:hidden">
