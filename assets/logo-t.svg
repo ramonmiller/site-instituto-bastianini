@@ -1,0 +1,14 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="t-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="28" fill="url(#t-gradient)" stroke="#065f46" stroke-width="2"/>
+  
+  <!-- T shape -->
+  <path d="M 15 20 L 45 20 M 30 20 L 30 45" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>

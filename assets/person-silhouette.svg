@@ -1,0 +1,42 @@
+<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="person-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Person silhouette -->
+  <g fill="url(#person-gradient)">
+    <!-- Head -->
+    <ellipse cx="150" cy="60" rx="25" ry="30"/>
+    
+    <!-- Torso -->
+    <rect x="125" y="90" width="50" height="120" rx="25"/>
+    
+    <!-- Arms -->
+    <ellipse cx="100" cy="130" rx="15" ry="40" transform="rotate(-20 100 130)"/>
+    <ellipse cx="200" cy="130" rx="15" ry="40" transform="rotate(20 200 130)"/>
+    
+    <!-- Legs -->
+    <ellipse cx="135" cy="280" rx="18" ry="70"/>
+    <ellipse cx="165" cy="280" rx="18" ry="70"/>
+    
+    <!-- Athletic stance details -->
+    <ellipse cx="85" cy="180" rx="12" ry="25" transform="rotate(-30 85 180)"/>
+    <ellipse cx="215" cy="180" rx="12" ry="25" transform="rotate(30 215 180)"/>
+  </g>
+  
+  <!-- Motion lines for dynamic effect -->
+  <g stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none">
+    <path d="M 80 120 Q 70 115 60 110" opacity="0.6">
+      <animate attributeName="opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 220 120 Q 230 115 240 110" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 120 350 Q 110 355 100 360" opacity="0.4">
+      <animate attributeName="opacity" values="0;0.4;0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

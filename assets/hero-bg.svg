@@ -1,0 +1,38 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stadium-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stadium background -->
+  <rect width="1920" height="1080" fill="url(#stadium-gradient)"/>
+  
+  <!-- Stadium structure -->
+  <ellipse cx="960" cy="540" rx="800" ry="300" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <ellipse cx="960" cy="540" rx="600" ry="200" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Stadium lights -->
+  <circle cx="200" cy="200" r="20" fill="rgba(255,255,255,0.8)" opacity="0.9">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="150" r="15" fill="rgba(255,255,255,0.8)" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1520" cy="180" r="18" fill="rgba(255,255,255,0.8)" opacity="0.8">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1720" cy="220" r="22" fill="rgba(255,255,255,0.8)" opacity="0.9">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Stadium seating sections -->
+  <path d="M 160 340 Q 960 240 1760 340 L 1760 380 Q 960 280 160 380 Z" fill="rgba(255,255,255,0.1)"/>
+  <path d="M 160 700 Q 960 800 1760 700 L 1760 740 Q 960 840 160 740 Z" fill="rgba(255,255,255,0.1)"/>
+  
+  <!-- Field lines -->
+  <rect x="660" y="440" width="600" height="200" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <line x1="960" y1="440" x2="960" y2="640" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="960" cy="540" r="80" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+</svg>
