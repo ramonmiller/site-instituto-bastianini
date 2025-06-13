@@ -83,7 +83,7 @@
   }
   
   .placeholder-image {
-    @apply bg-gray-200 border-2 border-gray-300 rounded-lg flex items-center justify-center;
+    @apply bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center;
   }
   
   .section-fade-in {
@@ -95,5 +95,16 @@
   .section-fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@layer base {
+  body {
+    line-height: 1.6;
+  }
+  
+  p {
+    color: #666;
+    line-height: 1.7;
   }
 }

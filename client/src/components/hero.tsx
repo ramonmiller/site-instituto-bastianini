@@ -10,16 +10,18 @@ export default function Hero() {
       />
       
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="absolute inset-0 bg-black bg-opacity-40" />
       
       {/* Hero Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-white mb-6 leading-tight">
-          Lorem ipsum dolor sit amet, consectetur
-        </h1>
-        <p className="text-lg md:text-xl text-white font-opensans leading-relaxed opacity-90">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+      <div className="relative z-10 text-left px-4 max-w-6xl mx-auto">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl md:text-5xl font-montserrat font-bold text-white mb-6 leading-tight">
+            Lorem ipsum dolor sit amet, consectetur
+          </h1>
+          <p className="text-base md:text-lg text-white font-opensans leading-relaxed opacity-90 max-w-xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
       </div>
     </section>
   );
