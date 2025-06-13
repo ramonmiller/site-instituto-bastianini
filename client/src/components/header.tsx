@@ -31,15 +31,15 @@ export default function Header() {
   return (
     <header className="relative">
       {/* Navigation Bar */}
-      <nav className="bg-primary-gradient shadow-lg relative z-20">
+      <nav className="bg-white shadow-lg relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <div className="text-white font-montserrat font-bold text-xl flex items-center">
+              <h3 className="font-montserrat font-bold text-xl flex items-center" style={{ color: '#0B336F' }}>
                 <GraduationCap className="mr-2 h-6 w-6" />
                 Instituto Bastianini
-              </div>
+              </h3>
             </div>
             
             {/* Desktop Navigation */}
@@ -48,42 +48,48 @@ export default function Header() {
                 <a 
                   href="#inicio" 
                   onClick={(e) => handleLinkClick(e, '#inicio')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Início
                 </a>
                 <a 
                   href="#sobre" 
                   onClick={(e) => handleLinkClick(e, '#sobre')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Sobre
                 </a>
                 <a 
                   href="#projetos" 
                   onClick={(e) => handleLinkClick(e, '#projetos')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Projetos
                 </a>
                 <a 
                   href="#eventos" 
                   onClick={(e) => handleLinkClick(e, '#eventos')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Eventos
                 </a>
                 <a 
                   href="#apoio" 
                   onClick={(e) => handleLinkClick(e, '#apoio')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Apoio
                 </a>
                 <a 
                   href="#contato" 
                   onClick={(e) => handleLinkClick(e, '#contato')}
-                  className="text-white hover:text-blue-200 transition-colors duration-300 font-medium"
+                  className="transition-colors duration-300 font-medium hover:opacity-70"
+                  style={{ color: '#737373' }}
                 >
                   Contato
                 </a>
@@ -97,7 +103,8 @@ export default function Header() {
             <div className="md:hidden">
               <button 
                 onClick={toggleMobileMenu}
-                className="text-white hover:text-blue-200 focus:outline-none focus:text-blue-200"
+                className="focus:outline-none hover:opacity-70"
+                style={{ color: '#737373' }}
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -110,47 +117,53 @@ export default function Header() {
         </div>
         
         {/* Mobile Navigation Menu */}
-        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-blue-800 border-t border-blue-700`}>
+        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white border-t border-gray-200`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             <a 
               href="#inicio" 
               onClick={(e) => handleLinkClick(e, '#inicio')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Início
             </a>
             <a 
               href="#sobre" 
               onClick={(e) => handleLinkClick(e, '#sobre')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Sobre
             </a>
             <a 
               href="#projetos" 
               onClick={(e) => handleLinkClick(e, '#projetos')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Projetos
             </a>
             <a 
               href="#eventos" 
               onClick={(e) => handleLinkClick(e, '#eventos')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Eventos
             </a>
             <a 
               href="#apoio" 
               onClick={(e) => handleLinkClick(e, '#apoio')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Apoio
             </a>
             <a 
               href="#contato" 
               onClick={(e) => handleLinkClick(e, '#contato')}
-              className="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block px-3 py-2 transition-colors duration-300 hover:opacity-70"
+              style={{ color: '#737373' }}
             >
               Contato
             </a>
