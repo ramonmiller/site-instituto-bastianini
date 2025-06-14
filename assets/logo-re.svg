@@ -1,0 +1,18 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="re-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="28" fill="url(#re-gradient)" stroke="#7f1d1d" stroke-width="2"/>
+  
+  <!-- Re text -->
+  <text x="30" y="38" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Re</text>
+  
+  <!-- Decorative dots -->
+  <circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="45" cy="15" r="2" fill="rgba(255,255,255,0.5)"/>
+</svg>
