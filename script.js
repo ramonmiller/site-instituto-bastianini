@@ -103,11 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
         heroText.style.opacity = '1';
         heroText.style.transform = 'translateY(0)';
     }, 300);
-    
-    setTimeout(() => {
-        heroFigure.style.opacity = '1';
-        heroFigure.style.transform = 'translateX(0)';
-    }, 600);
 });
 
 // Add typing effect to hero title
