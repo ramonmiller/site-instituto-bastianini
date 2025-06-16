@@ -326,6 +326,114 @@ body {
     font-size: 0.9rem;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.modal-conteudo {
+  background-color: #fff;
+  margin: 8% auto;
+  padding: 30px 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-conteudo p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.modal-conteudo a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.fechar {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.fechar:hover {
+  color: #000;
+}
+
+.botao-inscrever {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-inscrever:hover {
+  background-color: #1d4ed8;
+}
+
+/* Botão */
+#botaoInscrever {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.botao-inscrever {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-inscrever:hover {
+  background-color: #1e4fd6;
+}
+
+
+#botaoInscrever:hover {
+  background-color: #1e4fd1;
+}
+
 .view-all {
     text-align: center;
 }

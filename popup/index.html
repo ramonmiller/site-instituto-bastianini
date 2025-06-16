@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Eventos Disponíveis</h1>
+  <div class="eventos">
+    <div class="evento" data-nome="Feira de Tecnologia">
+      <h3>Feira de Tecnologia</h3>
+      <p>10 de Julho às 14h</p>
+    </div>
+
+    <div class="evento" data-nome="Oficina de Robótica">
+      <h3>Oficina de Robótica</h3>
+      <p>12 de Julho às 15h</p>
+    </div>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup" style="display: none;">
+    <div class="popup-content">
+      <span id="btnFechar" class="fechar">&times;</span>
+      <h2>Inscrição nas Atividades</h2>
+      <p id="instrucao"></p>
+      <ol>
+        <li>Certifique-se de que está comprometido(a) com o curso: tema, datas e horários.</li>
+        <li>Clique em <strong>Inscrever-se</strong> se quiser participar.</li>
+        <li>Depois envie no WhatsApp para <strong>(99) 91234-5678</strong>:<br>
+          <code id="codigoAtivacao"></code>
+        </li>
+        <li>Pronto! Você estará inscrito(a).</li>
+      </ol>
+      <button id="btnInscrever">Inscrever-se</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
