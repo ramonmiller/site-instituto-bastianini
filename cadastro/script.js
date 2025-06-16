@@ -6,7 +6,7 @@ document.getElementById('formPessoa').addEventListener('submit', function(event)
   const nome = document.getElementById('nome').value;
   const nascimento = document.getElementById('nascimento').value;
   const local = document.getElementById('local').value;
-  // const senha = document.getElementById('senha').value;
+  const senha = document.getElementById('senha').value;
   const mensagem = document.getElementById('mensagem');
 
   const dados = {

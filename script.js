@@ -1,4 +1,3 @@
-// Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -7,13 +6,11 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 }));
 
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -31,7 +28,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header background change on scroll
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
@@ -43,7 +39,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -57,12 +52,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
 document.querySelectorAll('.about-item, .project-item, .event-card').forEach(el => {
     observer.observe(el);
 });
 
-// Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroBackground = document.querySelector('.hero-bg-image');
@@ -71,7 +64,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add hover effects to project items
 document.querySelectorAll('.project-item').forEach(item => {
     item.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -82,7 +74,6 @@ document.querySelectorAll('.project-item').forEach(item => {
     });
 });
 
-// Add click handlers for event cards
 document.querySelectorAll('.event-card').forEach(card => {
     card.addEventListener('click', function() {
         // Add subtle click animation
@@ -93,7 +84,6 @@ document.querySelectorAll('.event-card').forEach(card => {
     });
 });
 
-// Initialize AOS (Animate On Scroll) effects
 document.addEventListener('DOMContentLoaded', function() {
     // Add loading animation to hero text
     const heroText = document.querySelector('.hero-text');
@@ -105,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
 });
 
-// Add typing effect to hero title
 function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = '';
@@ -121,14 +110,12 @@ function typeWriter(element, text, speed = 50) {
     type();
 }
 
-// Initialize typing effect when page loads
 window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-text h2');
     const originalText = heroTitle.textContent;
     typeWriter(heroTitle, originalText, 30);
 });
 
-// Add scroll progress indicator
 function createScrollIndicator() {
     const scrollIndicator = document.createElement('div');
     scrollIndicator.style.cssText = `
@@ -150,10 +137,8 @@ function createScrollIndicator() {
     });
 }
 
-// Initialize scroll indicator
 createScrollIndicator();
 
-// Add loading states for images
 document.querySelectorAll('img').forEach(img => {
     img.addEventListener('load', function() {
         this.style.opacity = '1';
@@ -163,4 +148,44 @@ document.querySelectorAll('img').forEach(img => {
         this.style.opacity = '0.5';
         console.warn('Failed to load image:', this.src);
     });
+});
+
+const modal = document.getElementById("modalInscricao");
+const fecharBtn = document.querySelector(".fechar");
+const textoInstrucoes = document.getElementById("texto-instrucoes");
+
+// Abre modal ao clicar em qualquer evento
+document.querySelectorAll('.botao-inscrever').forEach(botao => {
+    botao.addEventListener('click', () => {
+      const evento = botao.dataset.evento;
+      const agora = new Date();
+      const dia = String(agora.getDate()).padStart(2, '0');
+      const mes = String(agora.getMonth() + 1).padStart(2, '0');
+      const hora = String(agora.getHours()).padStart(2, '0');
+      const minutos = String(agora.getMinutes()).padStart(2, '0');
+      const horario = `${dia}/${mes} - ${hora}h${minutos}`;
+
+  
+      const modal = document.getElementById('modalInscricao');
+      const texto = document.getElementById('texto-instrucoes');
+  
+      texto.innerHTML = `
+      <strong>${horario}</strong>, você está na etapa de inscrição, irei lhe passar algumas instruções.<br><br>
+      1 - Se certifique que está comprometida a participar do curso, tanto em sua temática, datas e horários.<br>
+      2 - Caso você queira participar, clique no botão inscrever-se.<br>
+      3 - Em seguida, vá no número do WhatsApp abaixo e envie uma mensagem escrita com: <strong>"ativar inscrição em ${evento}"</strong><br>
+      4 - Após essas etapas, você se encontra inscrito no curso.
+    `;
+
+    modal.style.display = 'block';
+  });
+});
+  
+fecharBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 });
