@@ -13,12 +13,12 @@ document.getElementById('formPessoa').addEventListener('submit', function(event)
     nome: nome,
     nascimento: nascimento,
     local: local,
-    // senha: senha
+    senha: senha
   };
 
   console.log("Enviando os dados:", dados);
 
-  fetch('https://neptune-rmlz.onrender.com/pessoa', {
+  fetch('https://neptune-wq2t.onrender.com/pessoa', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
