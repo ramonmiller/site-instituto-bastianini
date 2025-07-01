@@ -13,7 +13,7 @@ document.getElementById('formPessoa').addEventListener('submit', function(event)
     nome: nome,
     nascimento: nascimento,
     local: local,
-    senha: senha
+    // senha: senha
   };
 
   console.log("Enviando os dados:", dados);
