@@ -1,3 +1,4 @@
+// === MENU HAMBURGUER ===
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -11,6 +12,7 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
+// === SCROLL SUAVE ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -28,6 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// === FUNDO HEADER ===
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
@@ -39,6 +42,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// === ANIMAÇÕES ===
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -64,6 +68,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// === ANIMAÇÕES DE HOVER ===
 document.querySelectorAll('.project-item').forEach(item => {
     item.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -76,7 +81,6 @@ document.querySelectorAll('.project-item').forEach(item => {
 
 document.querySelectorAll('.event-card').forEach(card => {
     card.addEventListener('click', function() {
-        // Add subtle click animation
         this.style.transform = 'scale(0.98)';
         setTimeout(() => {
             this.style.transform = '';
@@ -84,11 +88,9 @@ document.querySelectorAll('.event-card').forEach(card => {
     });
 });
 
+// === HERO DIGITAÇÃO ===
 document.addEventListener('DOMContentLoaded', function() {
-    // Add loading animation to hero text
     const heroText = document.querySelector('.hero-text');
-    const heroFigure = document.querySelector('.hero-figure');
-    
     setTimeout(() => {
         heroText.style.opacity = '1';
         heroText.style.transform = 'translateY(0)';
@@ -98,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = '';
-    
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
@@ -106,7 +107,6 @@ function typeWriter(element, text, speed = 50) {
             setTimeout(type, speed);
         }
     }
-    
     type();
 }
 
@@ -116,6 +116,7 @@ window.addEventListener('load', () => {
     typeWriter(heroTitle, originalText, 30);
 });
 
+// === SCROLL INDICATOR ===
 function createScrollIndicator() {
     const scrollIndicator = document.createElement('div');
     scrollIndicator.style.cssText = `
@@ -136,51 +137,111 @@ function createScrollIndicator() {
         scrollIndicator.style.width = scrolled + '%';
     });
 }
-
 createScrollIndicator();
 
+// === IMAGENS ===
 document.querySelectorAll('img').forEach(img => {
     img.addEventListener('load', function() {
         this.style.opacity = '1';
     });
-    
     img.addEventListener('error', function() {
         this.style.opacity = '0.5';
-        console.warn('Failed to load image:', this.src);
+        console.warn('Erro ao carregar imagem:', this.src);
     });
 });
 
+// === MODAL DE INSCRIÇÃO ===
 const modal = document.getElementById("modalInscricao");
 const fecharBtn = document.querySelector(".fechar");
 const textoInstrucoes = document.getElementById("texto-instrucoes");
+const botaoInscreverConfirmar = document.getElementById("botaoInscrever");
 
-// Abre modal ao clicar em qualquer evento
-document.querySelectorAll('.botao-inscrever').forEach(botao => {
-    botao.addEventListener('click', () => {
-      const evento = botao.dataset.evento;
-      const agora = new Date();
-      const dia = String(agora.getDate()).padStart(2, '0');
-      const mes = String(agora.getMonth() + 1).padStart(2, '0');
-      const hora = String(agora.getHours()).padStart(2, '0');
-      const minutos = String(agora.getMinutes()).padStart(2, '0');
-      const horario = `${dia}/${mes} - ${hora}h${minutos}`;
+let idDoEventoSelecionado = null;
+let idDoUsuario = localStorage.getItem("userId");
 
-  
-      const modal = document.getElementById('modalInscricao');
-      const texto = document.getElementById('texto-instrucoes');
-  
-      texto.innerHTML = `
-      <strong>${horario}</strong>, você está na etapa de inscrição, irei lhe passar algumas instruções.<br><br>
-      1 - Se certifique que está comprometida a participar do curso, tanto em sua temática, datas e horários.<br>
-      2 - Caso você queira participar, clique no botão inscrever-se.<br>
-      3 - Em seguida, vá no número do WhatsApp abaixo e envie uma mensagem escrita com: <strong>"ativar inscrição em ${evento}"</strong><br>
-      4 - Após essas etapas, você se encontra inscrito no curso.
-    `;
+// CARREGA EVENTOS DA API
+fetch("https://neptune-wq2t.onrender.com/eventos")
+  .then(res => res.json())
+  .then(eventos => {
+    const container = document.querySelector('.events-grid');
+    container.innerHTML = ''; // limpa os cards existentes
+    eventos.forEach(evento => {
+      const card = document.createElement("div");
+      card.className = "event-card";
+      card.innerHTML = `
+        <div class="event-image">
+            <div class="image-placeholder"></div>
+        </div>
+        <div class="event-content">
+            <h3>${evento.nome}</h3>
+            <div class="event-date">
+                <span class="date-day">${evento.data?.slice(8, 10) || '??'} ${evento.data?.slice(5, 7) || '??'}</span>
+                <p>horário: ${evento.horario || '00:00 às 00:00'}</p>
+            </div>
+            <button 
+              class="botao-inscrever" 
+              data-evento="${evento.nome}" 
+              data-event-id="${evento.id}"
+            >
+              Inscrever-se
+            </button>
+        </div>`;
+      container.appendChild(card);
+    });
 
-    modal.style.display = 'block';
+    // Ativa os botões depois de renderizar
+    document.querySelectorAll('.botao-inscrever').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const evento = botao.dataset.evento;
+        const agora = new Date();
+        const dia = String(agora.getDate()).padStart(2, '0');
+        const mes = String(agora.getMonth() + 1).padStart(2, '0');
+        const hora = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        const horario = `${dia}/${mes} - ${hora}h${minutos}`;
+
+        idDoEventoSelecionado = botao.dataset.eventId;
+
+        textoInstrucoes.innerHTML = `
+        <strong>${horario}</strong>, você está na etapa de inscrição, irei lhe passar algumas instruções.<br><br>
+        1 - Se certifique que está comprometida a participar do curso, tanto em sua temática, datas e horários.<br>
+        2 - Caso você queira participar, clique no botão inscrever-se.<br>
+        3 - Em seguida, vá no número do WhatsApp abaixo e envie uma mensagem escrita com: <strong>"ativar inscrição em ${evento}"</strong><br>
+        4 - Após essas etapas, você se encontra inscrito no curso.`;
+
+        modal.style.display = 'block';
+      });
+    });
+  })
+  .catch(err => {
+    console.error("Erro ao carregar eventos da API:", err);
   });
+
+// ENVIO DA INSCRIÇÃO
+botaoInscreverConfirmar.addEventListener("click", () => {
+  if (!idDoEventoSelecionado || !idDoUsuario) {
+    alert("Erro ao capturar IDs de inscrição.");
+    return;
+  }
+
+  fetch(`https://neptune-wq2t.onrender.com/subscribe/events?eventId=${idDoEventoSelecionado}&userId=${idDoUsuario}`, {
+    method: "POST"
+  })
+    .then(res => {
+      if (!res.ok) throw new Error("Erro ao realizar inscrição.");
+      return res.json();
+    })
+    .then(() => {
+      alert("Inscrição realizada com sucesso!");
+      modal.style.display = "none";
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Houve um erro na inscrição. Tente novamente.");
+    });
 });
-  
+
+// FECHAR MODAL
 fecharBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });

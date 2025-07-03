@@ -12,38 +12,28 @@ document.getElementById('formPessoa').addEventListener('submit', function(event)
   const dados = {
     nome: nome,
     nascimento: nascimento,
-    local: local,
-    senha: senha
+    local: local
   };
 
   console.log("Enviando os dados:", dados);
 
   fetch('https://neptune-wq2t.onrender.com/pessoa', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(dados)
   })
   .then(async response => {
-    if (!response.ok) {
-      throw new Error('Erro ao enviar os dados. Código: ' + response.status);
-    }
+    if (!response.ok) throw new Error('Erro ao enviar os dados. Código: ' + response.status);
 
-    // Tenta ler como texto (pode estar vazio)
     const text = await response.text();
     if (text) {
-      try {
-        const data = JSON.parse(text);
-        console.log("Resposta da API:", data);
-      } catch (e) {
-        console.log("Resposta não era JSON válido:", text);
+      const data = JSON.parse(text);
+      if (data.id) {
+        localStorage.setItem("userId", data.id); // salva ID no navegador
+
       }
-    } else {
-      console.log("Resposta vazia, mas sucesso confirmado");
     }
 
-    // ✅ Redireciona após sucesso
     window.location.href = "/index.html";
   })
   .catch(error => {
